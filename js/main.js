@@ -1,0 +1,348 @@
+'use strict';
+
+// ── Константы ──────────────────────────────────────────────
+const CAT_LABELS = {
+  living:   'Гостиная',
+  bedroom:  'Спальня',
+  kitchen:  'Кухня',
+  bathroom: 'Ванная',
+  hallway:  'Прихожая',
+  kids:     'Детская',
+};
+
+// ── Утилиты ────────────────────────────────────────────────
+function getCatLabel(cat) {
+  return CAT_LABELS[cat] || cat;
+}
+
+// ── Бургер-меню ────────────────────────────────────────────
+function initBurger() {
+  const burger   = document.querySelector('.nav-burger');
+  const navLinks = document.querySelector('.nav-links');
+
+  burger?.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    navLinks.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  navLinks?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open');
+    navLinks.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
+}
+
+// ── Шапка: класс scrolled ──────────────────────────────────
+function initScrolledHeader() {
+  const header = document.querySelector('header.site-nav');
+  if (!header) return;
+  const onScroll = () => {
+    header.classList.toggle('scrolled', window.scrollY > 0);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
+// ── Галерея ────────────────────────────────────────────────
+function renderGallery() {
+  const grid = document.getElementById('portfolio-grid');
+  if (!grid) return;
+
+  const catCounters = {};
+
+  window.WORKS.forEach((work, index) => {
+    const cat   = work.cat || 'living';
+    const label = getCatLabel(cat);
+
+    catCounters[cat] = (catCounters[cat] || 0) + 1;
+    const num = catCounters[cat];
+
+    const w = work.w || 800;
+    const h = work.h || 600;
+
+    const tile = document.createElement('div');
+    tile.className        = 'portfolio-tile';
+    tile.dataset.cat      = cat;
+    tile.dataset.index    = index;
+    tile.setAttribute('role', 'listitem');
+    tile.setAttribute('tabindex', '0');
+    tile.setAttribute('aria-label', `${label} ${num}`);
+
+    tile.innerHTML = `
+      <img
+        src="assets/img/thumb/${work.file}"
+        alt="Дизайн интерьера — ${label}"
+        loading="lazy"
+        width="${w}"
+        height="${h}"
+      >
+      <div class="tile-overlay" aria-hidden="true">
+        <div class="tile-overlay-inner">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="14" cy="14" r="8"/><path d="M20 20l6 6" stroke-linecap="round"/>
+          </svg>
+          <span class="tile-cat">${label}</span>
+        </div>
+      </div>
+    `;
+
+    tile.addEventListener('click', () => openLightbox(Number(tile.dataset.index)));
+
+    grid.appendChild(tile);
+  });
+}
+
+function applyFilter(cat) {
+  const tiles = document.querySelectorAll('.portfolio-tile');
+  tiles.forEach(tile => {
+    const visible = cat === 'all' || tile.dataset.cat === cat;
+
+    if (typeof gsap !== 'undefined') {
+      if (visible) {
+        tile.style.display = 'block';
+        gsap.fromTo(
+          tile,
+          { opacity: 0, scale: 0.96 },
+          { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' }
+        );
+      } else {
+        gsap.to(tile, {
+          opacity: 0,
+          scale: 0.96,
+          duration: 0.25,
+          ease: 'power2.in',
+          onComplete: () => { tile.style.display = 'none'; },
+        });
+      }
+    } else {
+      tile.style.display = visible ? 'block' : 'none';
+    }
+  });
+}
+
+function initFilters() {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilter(btn.dataset.cat);
+    });
+  });
+}
+
+// ── Клавиатурная навигация по тайлам ──────────────────────
+function initKeyboardNav() {
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && document.activeElement?.classList.contains('portfolio-tile')) {
+      document.activeElement.click();
+    }
+  });
+}
+
+// ── Лайтбокс ──────────────────────────────────────────────
+const LB = {
+  el:      null,
+  img:     null,
+  counter: null,
+  index:   0,
+  total:   0,
+};
+
+function lbShow(index) {
+  const works = window.WORKS;
+  if (!works?.length) return;
+  LB.index = (index + works.length) % works.length;
+  const work = works[LB.index];
+  LB.img.src = `assets/img/full/${work.file}`;
+  LB.img.alt = `Дизайн интерьера — работа ${LB.index + 1}`;
+  LB.counter.textContent = `${LB.index + 1} / ${works.length}`;
+
+  // Предзагрузка соседей
+  const preload = (i) => {
+    const w = works[(i + works.length) % works.length];
+    new Image().src = `assets/img/full/${w.file}`;
+  };
+  preload(LB.index - 1);
+  preload(LB.index + 1);
+}
+
+function openLightbox(index) {
+  LB.el = LB.el || document.getElementById('lightbox');
+  LB.img = LB.img || document.getElementById('lb-img');
+  LB.counter = LB.counter || document.getElementById('lb-counter');
+  if (!LB.el) return;
+
+  lbShow(index);
+  LB.el.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('lb-close')?.focus();
+}
+
+function closeLightbox() {
+  if (!LB.el) return;
+  LB.el.classList.remove('open');
+  document.body.style.overflow = '';
+  LB.img.src = '';
+}
+
+function initLightbox() {
+  const lb    = document.getElementById('lightbox');
+  const close = document.getElementById('lb-close');
+  const prev  = document.getElementById('lb-prev');
+  const next  = document.getElementById('lb-next');
+
+  if (!lb) return;
+  LB.el = lb;
+  LB.img = document.getElementById('lb-img');
+  LB.counter = document.getElementById('lb-counter');
+
+  close?.addEventListener('click', closeLightbox);
+  prev?.addEventListener('click', () => lbShow(LB.index - 1));
+  next?.addEventListener('click', () => lbShow(LB.index + 1));
+
+  // Клик по фону закрывает
+  lb.addEventListener('click', e => {
+    if (e.target === lb) closeLightbox();
+  });
+
+  // Клавиатура
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      lbShow(e.key === 'ArrowLeft' ? LB.index - 1 : LB.index + 1);
+    }
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Свайп (touch)
+  let touchStartX = 0;
+  lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) lbShow(dx < 0 ? LB.index + 1 : LB.index - 1);
+  }, { passive: true });
+}
+
+// ── Инициализация ──────────────────────────────────────────
+function init() {
+  initBurger();
+  initScrolledHeader();
+  if (window.WORKS) renderGallery();
+  initFilters();
+  initKeyboardNav();
+  initLightbox();
+  initAnimations();
+}
+
+// ── Анимации GSAP ──────────────────────────────────────────
+function initAnimations() {
+  // Guard: если GSAP не загружен или пользователь предпочитает без анимаций — выходим
+  if (typeof gsap === 'undefined') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Регистрируем ScrollTrigger
+  if (typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+  }
+
+  // ── Hero: каскадное появление ──
+  const heroContent = document.querySelector('.hero-content');
+  if (heroContent) {
+    const heroEls = heroContent.querySelectorAll('.eyebrow, .hero-title, .hero-sub, .hero-btns');
+    gsap.fromTo(
+      heroEls,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.0,
+        ease: 'power3.out',
+        stagger: 0.12,
+        delay: 0.2,
+      }
+    );
+  }
+
+  // ── Hero: parallax фона при скролле ──
+  const heroBg = document.querySelector('.hero-bg img');
+  if (heroBg && typeof ScrollTrigger !== 'undefined') {
+    gsap.to(heroBg, {
+      yPercent: 20,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      },
+    });
+  }
+
+  // ── Хелпер: reveal при скролле (снизу + прозрачность) ──
+  function scrollReveal(selector, options = {}) {
+    const els = document.querySelectorAll(selector);
+    if (!els.length) return;
+    gsap.fromTo(
+      els,
+      { opacity: 0, y: options.y ?? 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: options.duration ?? 0.9,
+        ease: options.ease ?? 'power3.out',
+        stagger: options.stagger ?? 0.1,
+        scrollTrigger: {
+          trigger: options.trigger ?? els[0],
+          start: 'top 82%',
+          once: true,
+        },
+      }
+    );
+  }
+
+  // ── Секция: Портфолио — заголовок и фильтры ──
+  scrollReveal('#portfolio .eyebrow, #portfolio h2, #portfolio .section-lead', {
+    trigger: '#portfolio',
+    stagger: 0.08,
+  });
+  scrollReveal('.portfolio-filters', { trigger: '#portfolio', y: 20, delay: 0.3 });
+
+  // ── Секция: Услуги ──
+  scrollReveal('#services .eyebrow, #services h2', {
+    trigger: '#services',
+    stagger: 0.08,
+  });
+  scrollReveal('.service-card', {
+    trigger: '#services',
+    stagger: 0.12,
+    y: 30,
+  });
+
+  // ── Секция: Этапы работы ──
+  scrollReveal('#process .eyebrow, #process h2', {
+    trigger: '#process',
+    stagger: 0.08,
+  });
+  scrollReveal('.process-step', {
+    trigger: '#process',
+    stagger: 0.14,
+    y: 30,
+  });
+
+  // ── Секция: Контакты ──
+  scrollReveal('#contacts .eyebrow, #contacts h2, #contacts .section-lead', {
+    trigger: '#contacts',
+    stagger: 0.08,
+  });
+  scrollReveal('.contact-btn', {
+    trigger: '#contacts',
+    stagger: 0.1,
+    y: 20,
+  });
+}
+
+document.addEventListener('DOMContentLoaded', init);

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Алина Яровая — Дизайн интерьера и 3D-визуализация</title>
+  <meta name="description" content="Алина Яровая — дизайнер интерьера и 3D-визуализатор. Создаю дизайн-проекты и фотореалистичную визуализацию жилых пространств от идеи до финального кадра.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="#">Алина Яровая</a>
+      <nav class="nav-links" aria-label="Навигация">
+        <a href="#portfolio">Работы</a>
+        <a href="#services">Услуги</a>
+        <a href="#process">Этапы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <button class="nav-burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="hero" class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="assets/img/hero.jpg" alt="" width="1200" height="750" fetchpriority="high">
+      </div>
+      <div class="hero-content container">
+        <p class="eyebrow">ДИЗАЙН ИНТЕРЬЕРА · 3D-ВИЗУАЛИЗАЦИЯ</p>
+        <h1 class="hero-title">Интерьеры, в которых хочется жить</h1>
+        <p class="hero-sub">Создаю дизайн-проекты и фотореалистичную визуализацию жилых пространств — от первой идеи до финального кадра.</p>
+        <div class="hero-btns">
+          <a class="btn btn-primary" href="#portfolio">Смотреть работы</a>
+          <a class="btn btn-outline" href="#contacts">Связаться</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <p class="eyebrow">ПОРТФОЛИО</p>
+        <h2>Избранные работы</h2>
+        <p class="section-lead">Подборка лучших визуализаций по категориям. Нажмите на кадр, чтобы рассмотреть.</p>
+        <div class="portfolio-filters" role="group" aria-label="Фильтр по категории">
+          <button class="filter-btn active" data-cat="all">Все</button>
+          <button class="filter-btn" data-cat="living">Гостиные</button>
+          <button class="filter-btn" data-cat="bedroom">Спальни</button>
+          <button class="filter-btn" data-cat="kitchen">Кухни</button>
+          <button class="filter-btn" data-cat="bathroom">Ванные</button>
+          <button class="filter-btn" data-cat="hallway">Прихожие</button>
+          <button class="filter-btn" data-cat="kids">Детские</button>
+        </div>
+        <div class="portfolio-grid" id="portfolio-grid" role="list"></div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <p class="eyebrow">УСЛУГИ</p>
+        <h2>Чем могу помочь</h2>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <rect x="4" y="8" width="32" height="24" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M4 14h32" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="20" cy="26" r="3" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3>3D-визуализация</h3>
+            <p>Фотореалистичные кадры интерьера ещё до ремонта: видно, как лягут материалы, свет и мебель.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <path d="M8 8h24v24H8z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 16h24M16 8v24" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3>Дизайн-проект под ключ</h3>
+            <p>Полный пакет: планировка, подбор материалов и мебели, чертежи для строителей.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M14 20l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Авторский надзор</h3>
+            <p>Контролирую реализацию, чтобы готовый интерьер совпал с визуализацией до деталей.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="process">
+      <div class="container">
+        <p class="eyebrow">КАК Я РАБОТАЮ</p>
+        <h2>Этапы работы</h2>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-num" aria-hidden="true">01</div>
+            <div class="step-body">
+              <h3>Бриф и замеры</h3>
+              <p>Обсуждаем задачи, стиль и бюджет, снимаю размеры помещения.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-num" aria-hidden="true">02</div>
+            <div class="step-body">
+              <h3>Планировка</h3>
+              <p>Прорабатываю зонирование и расстановку, согласуем лучший вариант.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-num" aria-hidden="true">03</div>
+            <div class="step-body">
+              <h3>Визуализация</h3>
+              <p>Показываю фотореалистичные кадры будущего интерьера, вносим правки.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-num" aria-hidden="true">04</div>
+            <div class="step-body">
+              <h3>Рабочий проект</h3>
+              <p>Готовлю чертежи и спецификации для реализации; по желанию — авторский надзор.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts" class="contacts">
+      <div class="container">
+        <p class="eyebrow">КОНТАКТЫ</p>
+        <h2>Давайте обсудим ваш интерьер</h2>
+        <p class="section-lead">Расскажите о проекте — отвечу и сориентирую по срокам и стоимости.</p>
+        <div class="contacts-links">
+          <a class="contact-btn" href="tel:+79264495033">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="currentColor"><path d="M17.4 15c-1-.6-2-.3-2.5.1l-1 .8c-.3.2-.8.2-1.1-.1-1.1-1.1-2.5-2.7-3-3.8-.2-.4-.1-.9.2-1.2l.8-.9c.4-.4.6-1.2.1-2.2L9.3 5c-.5-1-1.4-1.1-2-.9L5.7 4.7C4.6 5 3.7 6.1 3.8 7.5c.3 5 4.4 10 9.2 11.7 1.1.4 2.2.4 3.2-.1 1.1-.5 1.8-1.6 1.8-2.7v-1.1c0-.7-.3-1.1-.6-1.3z"/></svg>
+            +7 926 449-50-33
+          </a>
+          <a class="contact-btn" href="https://t.me/+79264495033" target="_blank" rel="noopener">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.19 13.367l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.958.192z"/></svg>
+            Telegram
+          </a>
+          <a class="contact-btn" href="mailto:alina_diz@mail.ru">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            alina_diz@mail.ru
+          </a>
+          <a class="contact-btn" href="https://www.instagram.com/my_blooming_interior?igsh=cWI4aWRrYnB5Zjly" target="_blank" rel="noopener">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            Instagram
+          </a>
+          <a class="contact-btn" href="https://vk.com/club211788261" target="_blank" rel="noopener">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.587-1.496c.6-.19 1.37 1.26 2.185 1.817.616.422 1.085.33 1.085.33l2.179-.03s1.139-.071.599-1.022c-.044-.073-.314-.66-1.613-1.867-1.36-1.26-1.178-1.056.46-3.236.998-1.33 1.397-2.143 1.272-2.49-.12-.332-.854-.244-.854-.244l-2.454.015s-.182-.025-.317.056c-.132.079-.217.264-.217.264s-.386 1.03-.902 1.906c-1.086 1.847-1.52 1.946-1.698 1.83-.413-.267-.31-1.075-.31-1.648 0-1.793.272-2.54-.528-2.733-.266-.064-.461-.106-1.141-.113-.872-.009-1.609.003-2.027.208-.278.135-.492.437-.362.454.162.021.528.099.722.363.25.341.241 1.106.241 1.106s.144 2.112-.335 2.372c-.329.18-.78-.187-1.747-1.865-.496-.857-.871-1.805-.871-1.805s-.072-.18-.202-.276c-.156-.117-.375-.154-.375-.154l-2.33.015s-.35.01-.478.162c-.114.135-.009.415-.009.415s1.826 4.271 3.893 6.422c1.895 1.973 4.047 1.843 4.047 1.843h.976z"/></svg>
+            ВКонтакте
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© 2026 Алина Яровая · Дизайн интерьера и 3D-визуализация</p>
+      <button class="btn-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+    </div>
+  </footer>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <!-- Данные работ -->
+  <script src="assets/works.js"></script>
+  <!-- Главный скрипт -->
+  <script src="js/main.js" defer></script>
+
+<!-- Лайтбокс -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр работы">
+  <button class="lightbox-close" id="lb-close" aria-label="Закрыть">&times;</button>
+  <button class="lightbox-arrow lightbox-prev" id="lb-prev" aria-label="Предыдущая">&#8249;</button>
+  <div class="lightbox-inner">
+    <img class="lightbox-img" id="lb-img" src="" alt="">
+  </div>
+  <button class="lightbox-arrow lightbox-next" id="lb-next" aria-label="Следующая">&#8250;</button>
+  <div class="lightbox-counter" id="lb-counter" aria-live="polite"></div>
+</div>
+</body>
+</html>
