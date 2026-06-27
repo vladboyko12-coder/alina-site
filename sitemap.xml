@@ -1,8 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.w3.org/sitemaps/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://alinayarovaya.ru/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-01.jpg</image:loc><image:caption>Дизайн-проект гостиной в современном стиле, квартира в Калининграде — дизайнер Алина Яровая</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-02.jpg</image:loc><image:caption>3D-визуализация спальни в скандинавском стиле, Светлогорск</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-03.jpg</image:loc><image:caption>Дизайн ванной комнаты в стиле минимализм, Калининград</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-04.jpg</image:loc><image:caption>Интерьер кухни в современном стиле, дизайнер интерьера Алина Яровая, Калининград</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-05.jpg</image:loc><image:caption>Дизайн гостиной в стиле контемпорари, Зеленоградск</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-06.jpg</image:loc><image:caption>Прихожая в современном стиле, дизайн-проект квартиры в Калининграде</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-07.jpg</image:loc><image:caption>Интерьер спальни в неоклассике, Пионерский — Алина Яровая</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-08.jpg</image:loc><image:caption>Дизайн детской комнаты в светлых тонах, Калининград</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-09.jpg</image:loc><image:caption>Гостиная в скандинавском стиле, 3D-визуализация интерьера, Светлогорск</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-10.jpg</image:loc><image:caption>Дизайн-проект ванной в современном стиле, Калининградская область</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-11.jpg</image:loc><image:caption>Кухня-гостиная в стиле минимализм, Калининград — дизайнер Алина Яровая</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-12.jpg</image:loc><image:caption>Спальня в стиле контемпорари, дизайн интерьера, Зеленоградск</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-13.jpg</image:loc><image:caption>Дизайн гостиной в неоклассическом стиле, квартира в Калининграде</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-14.jpg</image:loc><image:caption>Интерьер прихожей в стиле минимализм, Светлогорск</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-15.jpg</image:loc><image:caption>3D-визуализация детской комнаты, дизайн-проект, Калининград</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-16.jpg</image:loc><image:caption>Современная спальня, дизайн интерьера в Калининграде — Алина Яровая</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-17.jpg</image:loc><image:caption>Дизайн кухни в скандинавском стиле, Пионерский</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-18.jpg</image:loc><image:caption>Ванная комната в неоклассике, 3D-визуализация, Калининград</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-19.jpg</image:loc><image:caption>Гостиная в стиле лофт, дизайн-проект квартиры, Калининград</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-20.jpg</image:loc><image:caption>Спальня в скандинавском стиле, дизайнер интерьера Алина Яровая, Светлогорск</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-21.jpg</image:loc><image:caption>Современная кухня, дизайн интерьера, Зеленоградск</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-22.jpg</image:loc><image:caption>Дизайн гостиной в стиле минимализм, Калининградская область</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-23.jpg</image:loc><image:caption>3D-визуализация ванной комнаты в современном стиле, Калининград</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-24.jpg</image:loc><image:caption>Уютная спальня в неоклассике, дизайн-проект, Пионерский</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-25.jpg</image:loc><image:caption>Детская комната для двоих, дизайн интерьера в Калининграде — Алина Яровая</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-26.jpg</image:loc><image:caption>Гостиная в современном стиле, 3D-визуализация интерьера, Светлогорск</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-27.jpg</image:loc><image:caption>Дизайн прихожей в современном стиле, квартира в Калининграде</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-28.jpg</image:loc><image:caption>Кухня в стиле неоклассика, дизайн-проект, Зеленоградск</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-29.jpg</image:loc><image:caption>Просторная гостиная в стиле контемпорари, Калининград — Алина Яровая</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-30.jpg</image:loc><image:caption>Дизайн ванной комнаты в скандинавском стиле, Калининградская область</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-31.jpg</image:loc><image:caption>Гостиная-столовая в современном стиле, дизайн интерьера, Калининград</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-32.jpg</image:loc><image:caption>Спальня в стиле минимализм, 3D-визуализация, Светлогорск</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-33.jpg</image:loc><image:caption>Современная кухня с островом, дизайн-проект в Калининграде — Алина Яровая</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-34.jpg</image:loc><image:caption>Дизайн гостиной в скандинавском стиле, Пионерский</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-35.jpg</image:loc><image:caption>Светлая детская комната, дизайн интерьера, Зеленоградск</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-36.jpg</image:loc><image:caption>Ванная комната в стиле минимализм, 3D-визуализация, Калининград</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-37.jpg</image:loc><image:caption>Гостиная в неоклассике, дизайн-проект квартиры, Светлогорск</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-38.jpg</image:loc><image:caption>Спальня в современном стиле, дизайнер интерьера Алина Яровая, Калининград</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-39.jpg</image:loc><image:caption>Прихожая в скандинавском стиле, дизайн интерьера, Зеленоградск</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-40.jpg</image:loc><image:caption>Дизайн кухни в стиле контемпорари, Калининградская область</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-41.jpg</image:loc><image:caption>Современная гостиная с камином, дизайн-проект, Калининград — Алина Яровая</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-42.jpg</image:loc><image:caption>Спальня в стиле прованс, 3D-визуализация интерьера, Светлогорск</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-43.jpg</image:loc><image:caption>Кухня в скандинавском стиле, дизайн интерьера, Пионерский</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-44.jpg</image:loc><image:caption>Гостиная в стиле минимализм, дизайн-проект квартиры в Калининграде</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-45.jpg</image:loc><image:caption>Дизайн ванной комнаты в неоклассике, Зеленоградск — Алина Яровая</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-46.jpg</image:loc><image:caption>Детская комната в светлых тонах, 3D-визуализация, Калининград</image:caption></image:image>
+    <image:image><image:loc>https://alinayarovaya.ru/assets/img/full/work-47.jpg</image:loc><image:caption>Прихожая в современном стиле, дизайн интерьера, Калининградская область</image:caption></image:image>
   </url>
 </urlset>
