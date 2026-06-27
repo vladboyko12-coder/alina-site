@@ -74,7 +74,7 @@ function renderGallery() {
     tile.innerHTML = `
       <img
         src="assets/img/thumb/${work.file}"
-        alt="Дизайн интерьера — ${label}"
+        alt="${work.alt || 'Дизайн интерьера — ' + label}"
         loading="lazy"
         width="${w}"
         height="${h}"
@@ -207,7 +207,7 @@ function lbShow(index) {
   LB.index = (index + works.length) % works.length;
   const work = works[LB.index];
   LB.img.src = `assets/img/full/${work.file}`;
-  LB.img.alt = `Дизайн интерьера — работа ${LB.index + 1}`;
+  LB.img.alt = work.alt || `Дизайн интерьера — работа ${LB.index + 1}`;
   LB.counter.textContent = `${LB.index + 1} / ${works.length}`;
 
   // Предзагрузка соседей
