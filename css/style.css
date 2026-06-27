@@ -291,6 +291,11 @@ p {
   background: var(--ink);
 }
 
+/* При открытом меню фон — светлое стекло, линии всегда тёмные */
+.nav-burger.open span {
+  background: var(--ink);
+}
+
 /* === 6. МОБИЛЬНОЕ МЕНЮ (768px) === */
 
 @media (max-width: 768px) {
