@@ -5,20 +5,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Алина Яровая — Дизайн интерьера и 3D-визуализация</title>
   <meta name="description" content="Алина Яровая — дизайнер интерьера и 3D-визуализатор. Создаю дизайн-проекты и фотореалистичную визуализацию жилых пространств от идеи до финального кадра.">
+  <link rel="canonical" href="https://alinayarovaya.ru/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#7C8B6F">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Алина Яровая">
+  <meta property="og:title" content="Алина Яровая — дизайн интерьера и 3D-визуализация">
+  <meta property="og:description" content="Дизайн-проекты и фотореалистичная 3D-визуализация жилых пространств — от идеи до финального кадра.">
+  <meta property="og:url" content="https://alinayarovaya.ru/">
+  <meta property="og:image" content="https://alinayarovaya.ru/assets/img/hero.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="750">
+  <meta property="og:locale" content="ru_RU">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Алина Яровая — дизайн интерьера и 3D-визуализация">
+  <meta name="twitter:description" content="Дизайн-проекты и фотореалистичная 3D-визуализация жилых пространств.">
+  <meta name="twitter:image" content="https://alinayarovaya.ru/assets/img/hero.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Алина Яровая — дизайн интерьера",
+    "image": "https://alinayarovaya.ru/assets/img/hero.jpg",
+    "url": "https://alinayarovaya.ru/",
+    "telephone": "+79264495033",
+    "email": "alina_diz@mail.ru",
+    "description": "Дизайн интерьера и фотореалистичная 3D-визуализация жилых пространств.",
+    "priceRange": "600–1800 ₽/м²",
+    "areaServed": [
+      { "@type": "City", "name": "Калининград" },
+      { "@type": "City", "name": "Пионерский" },
+      { "@type": "City", "name": "Светлогорск" }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Калининградская область",
+      "addressCountry": "RU"
+    },
+    "sameAs": [
+      "https://t.me/+79264495033",
+      "https://www.instagram.com/my_blooming_interior",
+      "https://vk.com/club211788261"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Алина Яровая",
+      "jobTitle": "Дизайнер интерьера, 3D-визуализатор"
+    }
+  }
+  </script>
 </head>
 <body>
 
   <header class="site-nav">
     <div class="container nav-inner">
-      <a class="nav-logo" href="#">Алина Яровая</a>
+      <a class="nav-logo" href="#hero" aria-label="Алина Яровая — наверх">
+        <svg class="nav-logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 30" width="20" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="16" y1="1" x2="16" y2="29"/>
+          <polygon points="9,6 16,10 16,20 9,24 2,20 2,10"/>
+          <line x1="9" y1="14" x2="16" y2="10"/>
+          <line x1="9" y1="14" x2="2" y2="10"/>
+          <line x1="9" y1="14" x2="9" y2="24"/>
+        </svg>
+        <span class="nav-logo-text">
+          <span class="nav-logo-eyebrow" aria-hidden="true">Дизайн<span class="nav-logo-dot"></span>Визуализация</span>
+          <span class="nav-logo-name">Алина Яровая</span>
+        </span>
+      </a>
       <nav class="nav-links" aria-label="Навигация">
         <a href="#portfolio">Работы</a>
-        <a href="#services">Услуги</a>
+        <a href="#services">Стоимость</a>
         <a href="#process">Этапы</a>
         <a href="#contacts">Контакты</a>
       </nav>
@@ -60,46 +123,92 @@
           <button class="filter-btn" data-cat="kids">Детские</button>
         </div>
         <div class="portfolio-grid" id="portfolio-grid" role="list"></div>
+        <div class="portfolio-more is-hidden">
+          <button class="btn btn-outline" id="gallery-toggle" type="button" aria-expanded="false" aria-controls="portfolio-grid"></button>
+        </div>
       </div>
     </section>
 
     <section id="services" class="services">
       <div class="container">
-        <p class="eyebrow">УСЛУГИ</p>
-        <h2>Чем могу помочь</h2>
-        <div class="services-grid">
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <rect x="4" y="8" width="32" height="24" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M4 14h32" stroke="currentColor" stroke-width="1.5"/>
-                <circle cx="20" cy="26" r="3" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
-            </div>
-            <h3>3D-визуализация</h3>
-            <p>Фотореалистичные кадры интерьера ещё до ремонта: видно, как лягут материалы, свет и мебель.</p>
+        <p class="eyebrow">СТОИМОСТЬ</p>
+        <h2>Пакеты услуг</h2>
+        <p class="section-lead">Считаю стоимость за квадратный метр — вы выбираете объём работ под свою задачу.</p>
+
+        <div class="discount-strip" role="note">
+          <span class="discount-label">Скидка от площади на любой пакет</span>
+          <span class="discount-tiers">
+            <span>от 100 м² — <b>−10%</b></span>
+            <span>от 150 м² — <b>−15%</b></span>
+            <span>от 200 м² — <b>−20%</b></span>
+          </span>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3 class="price-name">Express</h3>
+            <p class="price-value">600 ₽<span>/ м²</span></p>
+            <ul class="price-features">
+              <li>Планировки (до 3 вариантов)</li>
+              <li>Коллажи</li>
+              <li>Ведомости по мебели и материалам</li>
+            </ul>
+            <a class="btn btn-outline price-btn" href="#contacts">Обсудить проект</a>
           </article>
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <path d="M8 8h24v24H8z" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M8 16h24M16 8v24" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
-            </div>
-            <h3>Дизайн-проект под ключ</h3>
-            <p>Полный пакет: планировка, подбор материалов и мебели, чертежи для строителей.</p>
+
+          <article class="price-card">
+            <h3 class="price-name">Basic</h3>
+            <p class="price-value">1 200 ₽<span>/ м²</span></p>
+            <ul class="price-features">
+              <li>Планировки (до 3 вариантов)</li>
+              <li>Коллажи</li>
+              <li>Полный пакет чертежей <em>или</em> визуализация всех помещений</li>
+              <li>Ведомости по мебели и материалам</li>
+            </ul>
+            <a class="btn btn-outline price-btn" href="#contacts">Обсудить проект</a>
           </article>
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M14 20l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3>Авторский надзор</h3>
-            <p>Контролирую реализацию, чтобы готовый интерьер совпал с визуализацией до деталей.</p>
+
+          <article class="price-card featured">
+            <span class="price-badge">Рекомендую</span>
+            <h3 class="price-name">Full</h3>
+            <p class="price-value">1 800 ₽<span>/ м²</span></p>
+            <ul class="price-features">
+              <li>Планировки (до 3 вариантов)</li>
+              <li>Коллажи</li>
+              <li>Полный пакет чертежей</li>
+              <li>Визуализация всех помещений</li>
+              <li>Ведомости по мебели и материалам</li>
+            </ul>
+            <a class="btn btn-primary price-btn" href="#contacts">Обсудить проект</a>
           </article>
         </div>
+
+        <ul class="pricing-conditions">
+          <li>Безлимитные правки и ракурсы</li>
+          <li>Авторский надзор — 18 000 ₽/мес</li>
+          <li>Выезд на замер: Пионерский и Светлогорск — 2 000 ₽, Калининград — 3 000 ₽</li>
+          <li>Работаю по договору</li>
+        </ul>
+
+        <details class="drawings">
+          <summary>Что входит в чертёжный пакет</summary>
+          <ol class="drawings-list">
+            <li>Обмерочный план</li>
+            <li>План демонтажа</li>
+            <li>План возведения перегородок</li>
+            <li>План расстановки мебели</li>
+            <li>План тёплого пола</li>
+            <li>План пола</li>
+            <li>План расположения плинтусов</li>
+            <li>План потолка</li>
+            <li>План дверей</li>
+            <li>План освещения, световых групп и выключателей</li>
+            <li>План розеток и слаботочных выводов с привязками по стенам</li>
+            <li>Схема развёртки стен</li>
+            <li>Развёртки стен по каждой комнате</li>
+            <li>Раскладка плитки</li>
+          </ol>
+        </details>
       </div>
     </section>
 
@@ -137,6 +246,12 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="bio-strip" aria-label="Об авторе">
+      <div class="container">
+        <p class="bio-text">Создаю интерьеры с 2009 года. Более 15 лет практики и профильное образование. Веду частные и общественные пространства под ключ — от первой планировки до готового результата.</p>
       </div>
     </section>
 

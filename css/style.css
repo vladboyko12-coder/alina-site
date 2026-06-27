@@ -185,16 +185,65 @@ p {
 }
 
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  line-height: 1;
+}
+
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-logo-mark {
+  flex-shrink: 0;
   color: var(--white);
   transition: color var(--transition);
 }
 
-.site-nav.scrolled .nav-logo {
+.site-nav.scrolled .nav-logo-mark {
   color: var(--ink);
+}
+
+.nav-logo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  transition: color var(--transition);
+}
+
+.nav-logo-eyebrow {
+  display: flex;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 8.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  padding-left: 0.32em;
+  color: rgba(255, 255, 255, 0.62);
+  transition: color var(--transition);
+}
+
+.nav-logo-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  margin: 0 7px;
+}
+
+.site-nav.scrolled .nav-logo-name {
+  color: var(--ink);
+}
+
+.site-nav.scrolled .nav-logo-eyebrow {
+  color: var(--muted);
 }
 
 .nav-links {
@@ -252,14 +301,17 @@ p {
   .nav-links {
     position: fixed;
     inset: 0;
-    background: var(--bg);
+    z-index: 1;
+    background: rgba(246, 242, 236, 0.18);
+    backdrop-filter: blur(30px) saturate(150%);
+    -webkit-backdrop-filter: blur(30px) saturate(150%);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 32px;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s;
+    transition: opacity 0.35s ease;
   }
 
   .nav-links.open {
@@ -269,7 +321,28 @@ p {
 
   .nav-links a {
     color: var(--ink);
-    font-size: 22px;
+    font-size: 24px;
+    letter-spacing: 0.04em;
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.28);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .nav-links.open a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-links.open a:nth-child(1) { transition-delay: 0.10s; }
+  .nav-links.open a:nth-child(2) { transition-delay: 0.16s; }
+  .nav-links.open a:nth-child(3) { transition-delay: 0.22s; }
+  .nav-links.open a:nth-child(4) { transition-delay: 0.28s; }
+
+  .nav-logo,
+  .nav-burger {
+    position: relative;
+    z-index: 2;
   }
 
   /* Анимация бургера в крест */
@@ -283,6 +356,10 @@ p {
 
   .nav-burger.open span:nth-child(3) {
     transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  .hero {
+    padding-top: 96px;
   }
 }
 
@@ -334,7 +411,7 @@ p {
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0,0,0,0.72) 0%,
+    rgba(0,0,0,0.80) 0%,
     rgba(0,0,0,0.38) 40%,
     rgba(0,0,0,0.15) 100%
   );
@@ -346,12 +423,14 @@ p {
 }
 
 .hero-content .eyebrow {
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.92);
+  text-shadow: 0 1px 16px rgba(0,0,0,0.45);
 }
 
 .hero-title {
   color: var(--white);
   margin-bottom: 20px;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.35);
 }
 
 .hero-sub {
@@ -482,6 +561,17 @@ p {
   transform: translateY(0);
 }
 
+/* Кнопка «Показать все работы» */
+.portfolio-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+.portfolio-more.is-hidden {
+  display: none;
+}
+
 /* Лайтбокс */
 .lightbox {
   display: none;
@@ -554,45 +644,252 @@ p {
   font-family: 'Inter', sans-serif;
 }
 
-/* === УСЛУГИ === */
+/* === ПАКЕТЫ / СТОИМОСТЬ === */
 
 .services {
   padding-block: var(--section-py);
   background: var(--bg-alt);
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-top: 16px;
+/* Плашка скидок */
+.discount-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 28px;
+  margin: 4px 0 40px;
+  padding: 16px 24px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
 }
 
-.service-card {
+.discount-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.discount-tiers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.discount-tiers > span {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.discount-tiers b {
+  color: var(--accent-deep);
+  font-weight: 600;
+}
+
+/* Сетка пакетов */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+  align-items: stretch;
+}
+
+.price-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   background: var(--white);
-  border-radius: 8px;
-  padding: clamp(28px, 4vw, 48px);
   border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: clamp(28px, 3vw, 40px);
   transition: box-shadow var(--transition), transform var(--transition);
 }
 
-.service-card:hover {
+.price-card:hover {
   box-shadow: 0 8px 40px rgba(0,0,0,0.08);
   transform: translateY(-4px);
 }
 
-.service-icon {
-  color: var(--accent);
+.price-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 8px 40px rgba(124,139,111,0.18);
+}
+
+.price-badge {
+  position: absolute;
+  top: -12px;
+  left: clamp(28px, 3vw, 40px);
+  background: var(--accent);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+}
+
+.price-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  margin-bottom: 14px;
+}
+
+.price-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: clamp(38px, 4vw, 48px);
+  line-height: 1;
+  color: var(--ink);
   margin-bottom: 24px;
 }
 
-.service-card h3 {
-  margin-bottom: 12px;
+.price-value span {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 4px;
 }
 
-.service-card p {
-  color: var(--muted);
+.price-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.price-features li {
+  position: relative;
+  padding-left: 26px;
   font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.price-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.price-features em {
+  font-style: italic;
+  color: var(--ink);
+}
+
+.price-btn {
+  margin-top: auto;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Условия */
+.pricing-conditions {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.pricing-conditions li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.pricing-conditions li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-2);
+}
+
+/* Раскрывающийся блок «чертёжный пакет» */
+.drawings {
+  margin-top: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.drawings summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 24px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.drawings summary::-webkit-details-marker {
+  display: none;
+}
+
+.drawings summary::after {
+  content: '+';
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.drawings[open] summary::after {
+  content: '−';
+}
+
+.drawings-list {
+  columns: 2;
+  column-gap: 40px;
+  padding: 0 24px 24px 44px;
+  margin: 0;
+}
+
+.drawings-list li {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  break-inside: avoid;
+}
+
+/* === ПОЛОСА «О СЕБЕ» === */
+
+.bio-strip {
+  background: var(--ink);
+  padding-block: clamp(48px, 7vh, 80px);
+}
+
+.bio-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.35;
+  color: var(--bg);
+  text-align: center;
+  max-width: 880px;
+  margin-inline: auto;
 }
 
 /* === ЭТАПЫ === */
@@ -725,10 +1022,6 @@ p {
 /* === АДАПТИВ === */
 
 @media (max-width: 1024px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .process-steps {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px 32px;
@@ -744,9 +1037,18 @@ p {
 }
 
 @media (max-width: 768px) {
-  .services-grid {
+  .pricing-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 28px;
+  }
+
+  .drawings-list {
+    columns: 1;
+    padding-left: 40px;
+  }
+
+  .discount-strip {
+    flex-direction: column;
   }
 
   .portfolio-grid {
@@ -776,7 +1078,48 @@ p {
   .lightbox-next { right: 4px; }
 }
 
+/* === МОБИЛЬНОЕ ПОРТФОЛИО — горизонтальная лента (≤640px) === */
+@media (max-width: 640px) {
+  .portfolio-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    padding-bottom: 16px;
+    /* Выходим за padding контейнера — лента от края до края */
+    margin-inline: calc(-1 * var(--container-px));
+    padding-inline: var(--container-px);
+    /* Градиентный намёк на скролл справа */
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    scrollbar-width: none;
+  }
+
+  .portfolio-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .portfolio-tile {
+    flex-shrink: 0;
+    width: 72vw;
+    max-width: 280px;
+    margin-bottom: 0;
+    scroll-snap-align: start;
+  }
+
+  .portfolio-tile img {
+    height: 220px;
+    object-fit: cover;
+  }
+}
+
 @media (max-width: 560px) {
+  .nav-logo-eyebrow {
+    display: none;
+  }
+
   .portfolio-grid {
     columns: 1;
   }

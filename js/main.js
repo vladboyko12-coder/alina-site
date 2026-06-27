@@ -95,20 +95,38 @@ function renderGallery() {
   });
 }
 
-function applyFilter(cat) {
-  const tiles = document.querySelectorAll('.portfolio-tile');
-  tiles.forEach(tile => {
-    const visible = cat === 'all' || tile.dataset.cat === cat;
+// Сколько работ показывать в «Все» до раскрытия
+const GALLERY_LIMIT = 12;
+function isMobileGallery() { return window.matchMedia('(max-width: 640px)').matches; }
+let currentCat = 'all';
+let galleryExpanded = false;
 
-    if (typeof gsap !== 'undefined') {
-      if (visible) {
-        tile.style.display = 'block';
+function getMatchedTiles() {
+  return [...document.querySelectorAll('.portfolio-tile')]
+    .filter(tile => currentCat === 'all' || tile.dataset.cat === currentCat);
+}
+
+function updateGalleryView(animate) {
+  const allTiles = [...document.querySelectorAll('.portfolio-tile')];
+  const matched  = getMatchedTiles();
+  const limited  = currentCat === 'all' && !galleryExpanded && !isMobileGallery();
+  const visible  = new Set(limited ? matched.slice(0, GALLERY_LIMIT) : matched);
+
+  allTiles.forEach(tile => {
+    const shouldShow = visible.has(tile);
+    const isShown    = tile.style.display !== 'none';
+
+    if (shouldShow && !isShown) {
+      tile.style.display = 'block';
+      if (animate && typeof gsap !== 'undefined') {
         gsap.fromTo(
           tile,
           { opacity: 0, scale: 0.96 },
           { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' }
         );
-      } else {
+      }
+    } else if (!shouldShow && isShown) {
+      if (animate && typeof gsap !== 'undefined') {
         gsap.to(tile, {
           opacity: 0,
           scale: 0.96,
@@ -116,11 +134,29 @@ function applyFilter(cat) {
           ease: 'power2.in',
           onComplete: () => { tile.style.display = 'none'; },
         });
+      } else {
+        tile.style.display = 'none';
       }
-    } else {
-      tile.style.display = visible ? 'block' : 'none';
     }
   });
+
+  updateGalleryToggle(matched.length);
+}
+
+function updateGalleryToggle(matchedCount) {
+  const wrap   = document.querySelector('.portfolio-more');
+  const toggle = document.getElementById('gallery-toggle');
+  if (!wrap || !toggle) return;
+
+  if (currentCat === 'all' && !isMobileGallery() && matchedCount > GALLERY_LIMIT) {
+    wrap.classList.remove('is-hidden');
+    toggle.textContent = galleryExpanded
+      ? 'Свернуть'
+      : `Показать все работы (${matchedCount})`;
+    toggle.setAttribute('aria-expanded', String(galleryExpanded));
+  } else {
+    wrap.classList.add('is-hidden');
+  }
 }
 
 function initFilters() {
@@ -128,8 +164,22 @@ function initFilters() {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      applyFilter(btn.dataset.cat);
+      currentCat = btn.dataset.cat;
+      galleryExpanded = false;
+      updateGalleryView(true);
     });
+  });
+}
+
+function initGalleryToggle() {
+  const toggle = document.getElementById('gallery-toggle');
+  if (!toggle) return;
+  toggle.addEventListener('click', () => {
+    galleryExpanded = !galleryExpanded;
+    updateGalleryView(true);
+    if (!galleryExpanded) {
+      document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 }
 
@@ -233,6 +283,12 @@ function init() {
   initScrolledHeader();
   if (window.WORKS) renderGallery();
   initFilters();
+  initGalleryToggle();
+  updateGalleryView(false);
+  window.matchMedia('(max-width: 640px)').addEventListener('change', () => {
+    galleryExpanded = false;
+    updateGalleryView(false);
+  });
   initKeyboardNav();
   initLightbox();
   initAnimations();
@@ -311,15 +367,21 @@ function initAnimations() {
   });
   scrollReveal('.portfolio-filters', { trigger: '#portfolio', y: 20, delay: 0.3 });
 
-  // ── Секция: Услуги ──
-  scrollReveal('#services .eyebrow, #services h2', {
+  // ── Секция: Пакеты / Стоимость ──
+  scrollReveal('#services .eyebrow, #services h2, #services .section-lead', {
     trigger: '#services',
     stagger: 0.08,
   });
-  scrollReveal('.service-card', {
-    trigger: '#services',
+  scrollReveal('.discount-strip', { trigger: '#services', y: 20 });
+  scrollReveal('.price-card', {
+    trigger: '.pricing-grid',
     stagger: 0.12,
     y: 30,
+  });
+  scrollReveal('.pricing-conditions, .drawings', {
+    trigger: '.pricing-conditions',
+    stagger: 0.1,
+    y: 20,
   });
 
   // ── Секция: Этапы работы ──
@@ -332,6 +394,9 @@ function initAnimations() {
     stagger: 0.14,
     y: 30,
   });
+
+  // ── Полоса «о себе» ──
+  scrollReveal('.bio-text', { trigger: '.bio-strip', y: 24 });
 
   // ── Секция: Контакты ──
   scrollReveal('#contacts .eyebrow, #contacts h2, #contacts .section-lead', {
