@@ -1211,6 +1211,32 @@ p {
   }
 }
 
+/* Чертежи на мобильном — вертикальный список во всю ширину (лента не уместна) */
+@media (max-width: 640px) {
+  .drawings-grid.portfolio-grid {
+    display: block;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    margin-inline: 0;
+    padding-inline: 0;
+    padding-bottom: 0;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .drawings-grid.portfolio-grid .portfolio-tile {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 12px;
+    scroll-snap-align: none;
+  }
+
+  .drawings-grid.portfolio-grid .portfolio-tile img {
+    height: auto;
+    object-fit: contain;
+  }
+}
+
 @media (max-width: 560px) {
   .nav-logo-eyebrow {
     display: none;
