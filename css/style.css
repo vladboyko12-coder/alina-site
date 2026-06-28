@@ -1046,8 +1046,9 @@ p {
   margin-bottom: 20px;
 }
 
-/* Чертежи показываем целиком (не обрезаем), на белом фоне */
-.drawings-grid .portfolio-tile img {
+/* Чертежи показываем целиком (не обрезаем), на белом фоне.
+   Двойной класс — чтобы перебить правило мобильной ленты (.portfolio-grid .portfolio-tile img). */
+.drawings-grid.portfolio-grid .portfolio-tile img {
   object-fit: contain;
   background: var(--white);
 }
