@@ -53,4 +53,14 @@
     <image:image><image:loc>https://mybloominginterior.ru/assets/img/full/work-46.jpg</image:loc><image:caption>Детская комната в светлых тонах, 3D-визуализация, Калининград</image:caption></image:image>
     <image:image><image:loc>https://mybloominginterior.ru/assets/img/full/work-47.jpg</image:loc><image:caption>Прихожая в современном стиле, дизайн интерьера, Калининградская область</image:caption></image:image>
   </url>
+  <url>
+    <loc>https://mybloominginterior.ru/realizovannye-proekty.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://mybloominginterior.ru/chertezhi.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
