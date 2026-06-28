@@ -192,89 +192,13 @@ function initKeyboardNav() {
   });
 }
 
-// ── Лайтбокс ──────────────────────────────────────────────
-const LB = {
-  el:      null,
-  img:     null,
-  counter: null,
-  index:   0,
-  total:   0,
-};
-
-function lbShow(index) {
-  const works = window.WORKS;
-  if (!works?.length) return;
-  LB.index = (index + works.length) % works.length;
-  const work = works[LB.index];
-  LB.img.src = `assets/img/full/${work.file}`;
-  LB.img.alt = work.alt || `Дизайн интерьера — работа ${LB.index + 1}`;
-  LB.counter.textContent = `${LB.index + 1} / ${works.length}`;
-
-  // Предзагрузка соседей
-  const preload = (i) => {
-    const w = works[(i + works.length) % works.length];
-    new Image().src = `assets/img/full/${w.file}`;
-  };
-  preload(LB.index - 1);
-  preload(LB.index + 1);
-}
-
+// ── Лайтбокс (делегирует общему модулю js/gallery.js) ──────
 function openLightbox(index) {
-  LB.el = LB.el || document.getElementById('lightbox');
-  LB.img = LB.img || document.getElementById('lb-img');
-  LB.counter = LB.counter || document.getElementById('lb-counter');
-  if (!LB.el) return;
-
-  lbShow(index);
-  LB.el.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  document.getElementById('lb-close')?.focus();
-}
-
-function closeLightbox() {
-  if (!LB.el) return;
-  LB.el.classList.remove('open');
-  document.body.style.overflow = '';
-  LB.img.src = '';
-}
-
-function initLightbox() {
-  const lb    = document.getElementById('lightbox');
-  const close = document.getElementById('lb-close');
-  const prev  = document.getElementById('lb-prev');
-  const next  = document.getElementById('lb-next');
-
-  if (!lb) return;
-  LB.el = lb;
-  LB.img = document.getElementById('lb-img');
-  LB.counter = document.getElementById('lb-counter');
-
-  close?.addEventListener('click', closeLightbox);
-  prev?.addEventListener('click', () => lbShow(LB.index - 1));
-  next?.addEventListener('click', () => lbShow(LB.index + 1));
-
-  // Клик по фону закрывает
-  lb.addEventListener('click', e => {
-    if (e.target === lb) closeLightbox();
-  });
-
-  // Клавиатура
-  document.addEventListener('keydown', e => {
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-      e.preventDefault();
-      lbShow(e.key === 'ArrowLeft' ? LB.index - 1 : LB.index + 1);
-    }
-    if (e.key === 'Escape') closeLightbox();
-  });
-
-  // Свайп (touch)
-  let touchStartX = 0;
-  lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-  lb.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(dx) > 50) lbShow(dx < 0 ? LB.index + 1 : LB.index - 1);
-  }, { passive: true });
+  const images = window.WORKS.map((w, i) => ({
+    src: `assets/img/full/${w.file}`,
+    alt: w.alt || `Дизайн интерьера — работа ${i + 1}`,
+  }));
+  window.Lightbox.open(images, index);
 }
 
 // ── Инициализация ──────────────────────────────────────────
@@ -290,7 +214,6 @@ function init() {
     updateGalleryView(false);
   });
   initKeyboardNav();
-  initLightbox();
   initAnimations();
 }
 
