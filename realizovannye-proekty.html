@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реализованные проекты — реальные фото интерьеров | Алина Яровая</title>
+  <meta name="description" content="Реальные фотографии готовых интерьеров от дизайнера Алины Яровой. Калининград и область — от планировки до воплощения в жизнь.">
+  <link rel="canonical" href="https://mybloominginterior.ru/realizovannye-proekty.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#7C8B6F">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Алина Яровая">
+  <meta property="og:title" content="Реализованные проекты — реальные фото интерьеров">
+  <meta property="og:description" content="Реальные фото готовых интерьеров от дизайнера Алины Яровой, Калининград и область.">
+  <meta property="og:url" content="https://mybloominginterior.ru/realizovannye-proekty.html">
+  <meta property="og:locale" content="ru_RU">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <header class="site-nav scrolled">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="index.html" aria-label="Алина Яровая — на главную">
+        <svg class="nav-logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 30" width="20" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="16" y1="1" x2="16" y2="29"/>
+          <polygon points="9,6 16,10 16,20 9,24 2,20 2,10"/>
+          <line x1="9" y1="14" x2="16" y2="10"/>
+          <line x1="9" y1="14" x2="2" y2="10"/>
+          <line x1="9" y1="14" x2="9" y2="24"/>
+        </svg>
+        <span class="nav-logo-text">
+          <span class="nav-logo-eyebrow" aria-hidden="true">Дизайн<span class="nav-logo-dot"></span>Визуализация</span>
+          <span class="nav-logo-name">Алина Яровая</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Навигация">
+        <a href="index.html#portfolio">Работы</a>
+        <a href="realizovannye-proekty.html" aria-current="page">Реализованные</a>
+        <a href="chertezhi.html">Чертежи</a>
+        <a href="index.html#services">Стоимость</a>
+        <a href="index.html#process">Этапы</a>
+        <a href="index.html#contacts">Контакты</a>
+      </nav>
+      <button class="nav-burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">ПОРТФОЛИО</p>
+        <h1>Реализованные проекты</h1>
+        <p class="section-lead">Реальные фотографии готовых интерьеров — то, как дизайн-проекты выглядят после ремонта. Калининград и Калининградская область.</p>
+      </div>
+    </section>
+
+    <section class="portfolio">
+      <div class="container">
+        <div class="portfolio-grid" id="real-grid" role="list"></div>
+      </div>
+    </section>
+
+    <section class="contacts-cta">
+      <div class="container">
+        <h2>Хотите так же?</h2>
+        <a class="btn btn-primary" href="index.html#contacts">Обсудить проект</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© 2026 Алина Яровая · Дизайн интерьера и 3D-визуализация · Калининград и Калининградская область</p>
+      <button class="btn-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+    </div>
+    <nav class="footer-links container" aria-label="Подвал">
+      <a href="realizovannye-proekty.html">Реализованные проекты</a>
+      <a href="chertezhi.html">Чертёжный пакет</a>
+    </nav>
+  </footer>
+
+  <!-- Лайтбокс -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр работы">
+    <button class="lightbox-close" id="lb-close" aria-label="Закрыть">&times;</button>
+    <button class="lightbox-arrow lightbox-prev" id="lb-prev" aria-label="Предыдущая">&#8249;</button>
+    <div class="lightbox-inner">
+      <img class="lightbox-img" id="lb-img" src="" alt="">
+    </div>
+    <button class="lightbox-arrow lightbox-next" id="lb-next" aria-label="Следующая">&#8250;</button>
+    <div class="lightbox-counter" id="lb-counter" aria-live="polite"></div>
+  </div>
+
+  <script src="assets/real-works.js"></script>
+  <script src="js/gallery.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      buildSimpleGallery(document.getElementById('real-grid'), window.REAL_WORKS, {
+        thumbSrc: (it) => `assets/img/real/thumb/${it.file}`,
+        fullSrc:  (it) => `assets/img/real/full/${it.file}`,
+      });
+    });
+  </script>
+</body>
+</html>

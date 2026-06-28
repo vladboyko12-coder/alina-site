@@ -1027,6 +1027,31 @@ p {
   color: var(--white);
 }
 
+/* === ШАПКА ПОДСТРАНИЦ === */
+.page-hero {
+  padding-top: 140px;
+  padding-bottom: 24px;
+}
+
+.page-hero h1 {
+  margin: 8px 0 14px;
+}
+
+.contacts-cta {
+  padding-block: var(--section-py);
+  text-align: center;
+}
+
+.contacts-cta h2 {
+  margin-bottom: 20px;
+}
+
+/* Чертежи показываем целиком (не обрезаем), на белом фоне */
+.drawings-grid .portfolio-tile img {
+  object-fit: contain;
+  background: var(--white);
+}
+
 .btn-top {
   width: 40px;
   height: 40px;
