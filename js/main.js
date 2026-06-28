@@ -215,6 +215,19 @@ function init() {
   });
   initKeyboardNav();
   initAnimations();
+
+  if (window.REAL_WORKS && window.buildSimpleGallery) {
+    buildSimpleGallery(document.getElementById('real-teaser-grid'),
+      window.REAL_WORKS.slice(0, 8),
+      { thumbSrc: it => `assets/img/real/thumb/${it.file}`,
+        fullSrc:  it => `assets/img/real/full/${it.file}` });
+  }
+  if (window.DRAWINGS && window.buildSimpleGallery) {
+    buildSimpleGallery(document.getElementById('draw-teaser-grid'),
+      window.DRAWINGS.slice(0, 3),
+      { thumbSrc: it => `assets/drawings/img/${it.file}`,
+        fullSrc:  it => `assets/drawings/img/${it.file}` });
+  }
 }
 
 // ── Анимации GSAP ──────────────────────────────────────────

@@ -95,7 +95,7 @@
 
     <section id="hero" class="hero">
       <div class="hero-bg" aria-hidden="true">
-        <img src="assets/img/hero.jpg" alt="" width="1200" height="750" fetchpriority="high">
+        <img src="assets/img/hero.jpg" alt="" width="1200" height="751" fetchpriority="high">
       </div>
       <div class="hero-content container">
         <p class="eyebrow">ДИЗАЙН ИНТЕРЬЕРА · 3D-ВИЗУАЛИЗАЦИЯ</p>
@@ -125,6 +125,33 @@
         <div class="portfolio-grid" id="portfolio-grid" role="list"></div>
         <div class="portfolio-more is-hidden">
           <button class="btn btn-outline" id="gallery-toggle" type="button" aria-expanded="false" aria-controls="portfolio-grid"></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container about-grid">
+        <div class="about-photo">
+          <img src="assets/img/about/alina.jpg" alt="Алина Яровая — дизайнер интерьера и 3D-визуализатор, Калининград" loading="lazy" width="900" height="1348">
+        </div>
+        <div class="about-text">
+          <p class="eyebrow">ОБО МНЕ</p>
+          <h2>Алина Яровая</h2>
+          <p>Создаю дизайн-проекты и фотореалистичную 3D-визуализацию жилых пространств — от первой идеи до финального кадра. Каждый интерьер начинается с того, как вы хотите в нём жить.</p>
+          <p>Работаю в Калининграде и области: продумываю планировку, подбираю материалы и мебель, готовлю полный рабочий проект, по которому интерьер воплощается в жизнь без сюрпризов.</p>
+          <p class="about-note">Текст-заглушка — Алина пришлёт финальную версию.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="real-teaser" class="teaser">
+      <div class="container">
+        <p class="eyebrow">РЕАЛИЗОВАНО</p>
+        <h2>Проекты вживую</h2>
+        <p class="section-lead">Так визуализации выглядят после ремонта — реальные фото готовых интерьеров.</p>
+        <div class="teaser-grid" id="real-teaser-grid" role="list"></div>
+        <div class="teaser-more">
+          <a class="btn btn-outline" href="realizovannye-proekty.html">Смотреть все работы →</a>
         </div>
       </div>
     </section>
@@ -255,6 +282,18 @@
       </div>
     </section>
 
+    <section id="drawings-teaser" class="teaser">
+      <div class="container">
+        <p class="eyebrow">ДОКУМЕНТАЦИЯ</p>
+        <h2>Что входит в проект</h2>
+        <p class="section-lead">Вы получаете полный чертёжный пакет: планировки, обмеры, развёртки стен — по нему интерьер собирают точно по задумке.</p>
+        <div class="teaser-grid teaser-grid--draw" id="draw-teaser-grid" role="list"></div>
+        <div class="teaser-more">
+          <a class="btn btn-outline" href="chertezhi.html">Посмотреть чертёжный пакет →</a>
+        </div>
+      </div>
+    </section>
+
     <section id="contacts" class="contacts">
       <div class="container">
         <p class="eyebrow">КОНТАКТЫ</p>
@@ -299,6 +338,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <!-- Данные работ -->
   <script src="assets/works.js"></script>
+  <script src="assets/real-works.js"></script>
+  <script src="assets/drawings/drawings.js"></script>
   <!-- Общий лайтбокс/галерея -->
   <script src="js/gallery.js" defer></script>
   <!-- Главный скрипт -->
