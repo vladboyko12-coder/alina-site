@@ -343,6 +343,8 @@ p {
   .nav-links.open a:nth-child(2) { transition-delay: 0.16s; }
   .nav-links.open a:nth-child(3) { transition-delay: 0.22s; }
   .nav-links.open a:nth-child(4) { transition-delay: 0.28s; }
+  .nav-links.open a:nth-child(5) { transition-delay: 0.34s; }
+  .nav-links.open a:nth-child(6) { transition-delay: 0.40s; }
 
   .nav-logo,
   .nav-burger {
@@ -1006,6 +1008,25 @@ p {
   letter-spacing: 0.03em;
 }
 
+.footer-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--white);
+}
+
 .btn-top {
   width: 40px;
   height: 40px;
@@ -1129,7 +1150,7 @@ p {
     display: none;
   }
 
-  .portfolio-tile {
+  .portfolio-grid .portfolio-tile {
     flex-shrink: 0;
     width: 72vw;
     max-width: 280px;
@@ -1137,7 +1158,7 @@ p {
     scroll-snap-align: start;
   }
 
-  .portfolio-tile img {
+  .portfolio-grid .portfolio-tile img {
     height: 220px;
     object-fit: cover;
   }
