@@ -46,12 +46,16 @@
     LB.el.classList.remove('open');
     document.body.style.overflow = '';
     LB.img.src = '';
+    // вернуть фокус на плитку, с которой открыли
+    if (LB.opener && typeof LB.opener.focus === 'function') LB.opener.focus();
+    LB.opener = null;
   }
 
   // Открыть лайтбокс над списком изображений [{src, alt}], начиная с index
   window.Lightbox = {
     open(images, index) {
       if (!wire() || !images || !images.length) return;
+      LB.opener = document.activeElement;
       LB.list = images;
       show(index || 0);
       LB.el.classList.add('open');

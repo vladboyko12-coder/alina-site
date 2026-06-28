@@ -186,8 +186,10 @@ function initGalleryToggle() {
 // ── Клавиатурная навигация по тайлам ──────────────────────
 function initKeyboardNav() {
   document.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && document.activeElement?.classList.contains('portfolio-tile')) {
-      document.activeElement.click();
+    const el = document.activeElement;
+    // только плитки главной сетки; тизеры обрабатывают Enter сами (js/gallery.js)
+    if (e.key === 'Enter' && el?.classList.contains('portfolio-tile') && el.closest('#portfolio-grid')) {
+      el.click();
     }
   });
 }
